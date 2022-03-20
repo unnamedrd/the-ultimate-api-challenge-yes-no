@@ -1,6 +1,24 @@
 // API
 const API_ENDPOINT = 'https://yesno.wtf/api';
 
+const answer = document.querySelector('#answer');
+const button = document.querySelector('#button');
+
+button.addEventListener('click', console.log('clicked'))
+
+function fetchAnswer() {
+
+    fetch(API_ENDPOINT)
+        .then(function (response) {
+            answer.innerHTML = response.data
+        })
+        .catch(function (err) {
+            //error
+        });
+    
+}
+
+
 /**
  * STEPS:
  *
