@@ -4,18 +4,22 @@ const API_ENDPOINT = 'https://yesno.wtf/api';
 const answer = document.querySelector('#answer');
 const button = document.querySelector('#button');
 
-button.addEventListener('click', console.log('clicked'))
+button.addEventListener("click", fetchAnswer);
 
 function fetchAnswer() {
 
-    fetch(API_ENDPOINT)
+    fetch(API_ENDPOINT, { mode: 'cors' })
         .then(function (response) {
-            answer.innerHTML = response.data
+            return response.json();
+        })
+        .then(function (response) {
+            answer.innerHTML = response.answer
         })
         .catch(function (err) {
             //error
         });
     
+   
 }
 
 
