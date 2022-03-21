@@ -14,15 +14,21 @@ function fetchAnswer() {
         })
         .then(function (response) {
             answer.innerHTML = response.answer
+            clearAnswer()
         })
         .catch(function (err) {
-            //error
+            errorMsg()
         });
-    
-   
+
 }
 
-
+function clearAnswer() {
+    
+    setTimeout(function () {
+        answer.innerHTML = " ";
+    }, 3000)
+  
+}
 /**
  * STEPS:
  *
